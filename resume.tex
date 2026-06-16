@@ -32,12 +32,8 @@
 
 \begin{center}
   {\LARGE \textbf{朱程炀}}\\[3pt]
-  求职意向：高性能计算工程师 / 系统优化与加速方向实习\\[1pt]
-  18069173289 \;|\; \href{mailto:i@zecyel.xyz}{i@zecyel.xyz} \;|\; \href{https://github.com/Zecyel}{github.com/Zecyel}
+  Phone: 18069173289 \;|\; Email: \href{mailto:i@zecyel.xyz}{i@zecyel.xyz} \;|\; GitHub: \href{https://github.com/Zecyel}{github.com/Zecyel}
 \end{center}
-
-\section*{个人摘要}
-复旦大学计算机科学与技术拔尖人才班本科生，方向聚焦高性能计算、系统优化、C++/CPU 性能优化与 AI Infra。复旦超算队核心成员，完整参与异构 GPU 集群从架构选型、硬件设计到装机部署的建设过程；在 ASC26 中独立完成 Qibo / Quimb MPS CPU 优化，实现约 40 倍加速，并参与 AMSS-NCKU 黑洞数值模拟的 MPI+OpenMP 与内存系统优化。
 
 \section*{教育背景}
 \entry{复旦大学，计算机科学与技术专业（拔尖人才班），本科在读}{2023.09 -- 2027.06}
@@ -48,48 +44,49 @@
 \section*{技术能力}
 \begin{itemize}
   \item \textbf{系统语言与程序抽象：}C++23、Python、Rust、Haskell；熟悉现代 C++、RAII、模板 / 泛型编程、并发与内存模型，具备 Programming Language Theory、类型系统与函数式编程背景。
-  \item \textbf{HPC 与并行优化：}熟悉 profiling、benchmark 设计、热点路径定位、MPI+OpenMP 混合并行调优、NUMA / 进程线程映射、编译优化、cache / 访存优化与性能结果复现；有 C++/Fortran 混合代码和 pybind11 扩展开发经验。
-  \item \textbf{集群与加速基础设施：}具备异构 GPU 集群架构选型与部署经验，熟悉 InfiniBand、Slurm、分布式存储、CUDA / NCCL / MPI 软件栈；有 NVIDIA Nsight Systems / nsys、CANN / Ascend 910B 算子开发与模型训推 Infra 适配经验。
+  \item \textbf{HPC 与并行优化：}熟悉 profiling、热点路径定位、MPI+OpenMP 混合并行调优、NUMA / 进程线程映射、编译优化、cache / 访存优化、benchmark 设计与性能结果复现；有 C++/Fortran 混合代码调优经验。
+  \item \textbf{集群与加速基础设施：}具备异构 GPU 集群架构选型与部署经验，熟悉 InfiniBand、Slurm、分布式存储、CUDA / NCCL / MPI 软件栈；有 NVIDIA Nsight Systems、CANN / Ascend 910B 算子开发与模型训推 Infra 适配经验。
 \end{itemize}
 
 \section*{核心经历}
 \entry{复旦超算队核心成员 / ASC26 世界大学生超算大赛}{2025.11 -- 2026.05}
 \begin{itemize}
-  \item 作为核心成员完整参与异构 4 节点 GPU 集群从架构选型、硬件设计、装机部署到比赛现场调试的全过程，集群覆盖 Ada / Ampere / Hopper 等多代际 NVIDIA GPU，其中 3 节点接入 InfiniBand 网络。
-  \item 参与设计并部署 Slurm 调度、NFS / BeeGFS 存储、CUDA / NCCL / MPI 等 HPC 软件栈；比赛现场因 NFS 网络访问不稳定，参与紧急切换至 BeeGFS，保障多道赛题稳定运行。
-  \item 参与多项 ASC 应用的编译部署、benchmark、性能分析与调优，支持团队首次参赛进入决赛，获得 ASC26 一等奖，决赛总成绩第六。官方页面：\link{https://www.asc-events.net/StudentChallenge/ASC26/final-competition.php}{ASC26 Final Competition}。
+  \item 具备异构 GPU 集群架构选型与落地能力：完整参与 4 节点集群从硬件设计、装机部署到比赛现场调试的全过程，覆盖 Ada / Ampere / Hopper 等多代际 NVIDIA GPU。
+  \item 具备高速互联与 HPC 软件栈搭建调试能力：完成三节点 InfiniBand 网络搭建、连通性验证与性能调试，参与设计并部署 Slurm 调度、CUDA / NCCL / MPI、NFS / BeeGFS 等运行环境。
+  \item 具备比赛现场系统问题定位与快速切换能力：在 NFS 网络访问不稳定时切换至 BeeGFS，保障多道赛题稳定运行；参与多项 ASC 应用的编译部署、benchmark、性能分析与调优，支持团队首次参赛进入决赛，获得 ASC26 一等奖，决赛总成绩第六。官方页面：\link{https://www.asc-events.net/StudentChallenge/ASC26/final-competition.php}{ASC26 Final Competition}。
 \end{itemize}
 
 \entry{AMSS-NCKU 黑洞数值模拟优化}{2026.05}
 \begin{itemize}
-  \item 面向 C++/Fortran 混合的双黑洞数值模拟程序，优化椭圆初值求解与双曲演化阶段；通过 MPI+OpenMP 进程线程配置、NUMA 映射、编译参数和热点算子调优，在精度约束下提升端到端性能。
-  \item 针对 TorchScript / LibTorch 桥接中的 H2D/D2H 内存震荡，实现 thread\_local 参数预分配、设备端 field cache、真空物理场零张量注入与 fast-path routing，减少动态分配和 PCIe 传输压力。
-  \item 设计单节点跨 MPI 进程共享内存机制与专用 shared slab allocator，以共享 flag / 原子数组替代部分 MPI\_Allreduce，同步开销转为零拷贝共享数据访问；端到端运行时间从 30447s 降至 11658s，实现 2.61 倍加速，RMS 误差 0.5764\%（低于 1\% 阈值）。
+  \item 具备复杂科学计算代码的拆解能力：面向 C++/Fortran 混合的双黑洞数值模拟程序，围绕椭圆初值求解与双曲演化阶段分析瓶颈，并通过 MPI+OpenMP 配置、NUMA 映射、编译参数和热点算子调优提升端到端性能。
+  \item 具备 CPU/GPU 数据通路与框架调用开销优化能力：针对 C++/Fortran 主程序调用 TorchScript / LibTorch 时的 H2D/D2H 内存震荡，实现 thread\_local 参数预分配、设备端 field cache、真空物理场零张量注入与 fast-path routing，减少动态分配和 PCIe 传输压力。
+  \item 具备 MPI 同步瓶颈重构与专用 allocator 设计能力：设计单节点跨 MPI 进程共享内存机制与 shared slab allocator，以共享 flag / 原子数组替代部分 MPI\_Allreduce，将同步开销转为零拷贝共享数据访问；端到端运行时间从 30447s 降至 11658s，实现 2.61 倍加速。项目链接：\link{https://github.com/FDU-SC/ASC26-AMSS-NCKU}{FDU-SC/ASC26-AMSS-NCKU}。
 \end{itemize}
 
-\entry{Qibo / Quimb MPS 量子线路模拟 CPU 优化}{2026.05}
+\entry{QiboTN / Quimb MPS 量子线路模拟 CPU 优化}{2026.05}
 \begin{itemize}
-  \item 独立负责 ASC26 决赛 Qibo 应用优化，主要针对 Quimb MPS 后端 CPU 执行路径进行加速；在一天内快速学习量子计算与量子线路模拟核心知识，完成瓶颈定位、方案设计与实现。
-  \item 通过分段计时定位 Python 层热点路径，将关键瓶颈以 C++ / pybind11 重写，并结合 Python 层热点路径提取、调用开销削减与数据流整理等优化，将运行时间从约 2 小时降至 182 秒，实现约 40 倍加速。
-  \item 该应用赛题性能表现位列决赛第一，获得 ASC26 应用创新奖。
+  \item 具备快速进入陌生计算领域并建立性能模型的能力：独立负责 ASC26 决赛 QiboTN 应用优化，在一天内掌握量子线路模拟核心知识，定位 Quimb MPS 后端 CPU 执行路径瓶颈。
+  \item 具备 Python 性能瓶颈定位与 C++ 扩展优化能力：通过分段计时定位瓶颈，将关键路径以 C++ / pybind11 重写，并减少 Python 层重复调用与数据整理开销，将运行时间从约 2 小时降至 182 秒，实现约 40 倍加速。
+  \item 该应用赛题性能表现位列决赛第一，获得 ASC26 应用创新奖。项目链接：\link{https://github.com/FDU-SC/QiboTN-optimized}{FDU-SC/QiboTN-optimized}。
 \end{itemize}
 
 \entry{FNLP 实验室 / 新模型 Infra 适配}{2025.02 -- 至今}
 \begin{itemize}
-  \item 在邱锡鹏老师课题组实习一年有余，参与新模型、新架构的训练 / 推理 Infra 适配，覆盖模型推理范式调整、训练计算图构建、GPU 训练适配与工程化落地。
-  \item 修改 RWKV 模型推理范式，在无额外训练情况下将 MMLU pass@1 提升约 20 个百分点；针对实验室 FFNN 架构复杂、计算图冗余的问题，精细构建训练计算图并提取重复计算，使模型能够在 GPU 上高效训练。
+  \item 具备新模型 / 新架构训练推理 Infra 适配能力：在邱锡鹏老师课题组实习一年有余，覆盖模型推理范式调整、训练计算图构建、GPU 训练适配与工程化落地。
+  \item 具备模型执行范式和计算图优化能力：修改 RWKV 模型推理范式，在无额外训练情况下将 MMLU pass@1 提升约 20 个百分点；针对实验室 FFNN 架构复杂、计算图冗余的问题，精细构建训练计算图并提取重复计算，使模型能够在 GPU 上高效训练。
   \item 参与 OpenMOSS 项目开发，并在实验室 2025 夏令营为博士生讲授 Infra 课程，材料：\link{https://fudan-nlp.feishu.cn/docx/GnOsdHiu1oouHixqfChcmVcMnBw?from=from_copylink}{FNLP Infra Course}。
 \end{itemize}
 
 \entry{Ascend 算子挑战赛 / ScatterReduce 算子优化}{2025.04}
 \begin{itemize}
-  \item 基于 CANN 在 Ascend 910B 平台实现 ScatterReduce 算子，围绕并行访存与执行粒度进行优化，获得团队赛季军。
+  \item 具备 AI 加速器算子开发与访存优化能力：基于 CANN 在 Ascend 910B 平台实现 ScatterReduce 算子，围绕并行访存与执行粒度进行优化，获得团队赛季军。
 \end{itemize}
 
 \section*{拓展经历}
 \begin{itemize}
-  \item 长期参与程序设计竞赛训练（2015 -- 2020）；2021 年参加清华大学零一学院，设计并训练 video2text 模型；系统学习 Programming Language Theory、机器学习与软件工程，具备较强的程序抽象与工程化代码能力。
-  \item 持续参与 AIxMath / 数学形式化方向工作，围绕多个形式化语言改进 workflow、agentic loop 与 agent harness，并在校内组织 AIxMath 技术讨论与讲座，示例材料：\link{https://slides.aixmath.org/Theory-of-Computation/\#/}{Theory of Computation}。
+  \item 长期程序设计竞赛训练（2015 -- 2020），系统学习 Programming Language Theory、机器学习与大型软件质量控制，具备较强的程序抽象、复杂系统理解与工程化代码能力。
+  \item 2021 年参加清华大学零一学院夏令营，设计并训练 video2text 模型。
+  \item 持续参与 AIxMath / 数学形式化方向工作，具备形式化语言、agentic workflow 与 agent harness 的工程抽象能力；在校内组织 AIxMath 技术讨论与讲座，讲座材料：\link{https://slides.aixmath.org/Theory-of-Computation/\#/}{Theory of Computation}。
 \end{itemize}
 
 \end{document}
